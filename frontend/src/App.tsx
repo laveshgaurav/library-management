@@ -26,7 +26,7 @@ function App() {
     try {
       const response = await login(userInput);
       console.log("Response", response);
-    } catch (e) {
+    } catch (e: any) {
       console.log("E", e.response);
     }
   };
