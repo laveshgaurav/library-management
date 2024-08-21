@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { login } from "./services/http.service";
 
@@ -26,8 +27,8 @@ function App() {
     try {
       const response = await login(userInput);
       console.log("Response", response);
-    } catch (e: any) {
-      console.log("E", e.response);
+    } catch (error) {
+      /* empty */
     }
   };
 
