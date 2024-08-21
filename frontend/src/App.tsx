@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { login } from "./services/http.service";
 
 function App() {
   // States
@@ -13,6 +14,23 @@ function App() {
       : "",
   );
 
+  const [userInput, setUserInput] = useState<{
+    email: string;
+    password: string;
+  }>({
+    email: "",
+    password: "",
+  });
+
+  const handleLogin = async () => {
+    try {
+      const response = await login(userInput);
+      console.log("Response", response);
+    } catch (e) {
+      console.log("E", e.response);
+    }
+  };
+
   return (
     <div className="">
       <div className="h-screen w-screen border-[4px] border-red-700">
@@ -23,7 +41,30 @@ function App() {
             Library
           </h1>
         </div>
-        <div className="w-3/5"></div>
+        <div className="w-3/5">
+          <input
+            value={userInput.email}
+            onChange={(e) =>
+              setUserInput((p) => ({
+                ...p,
+                email: e.target.value,
+              }))
+            }
+            placeholder="Enter Email"
+          />
+
+          <input
+            value={userInput.password}
+            onChange={(e) =>
+              setUserInput((p) => ({
+                ...p,
+                password: e.target.value,
+              }))
+            }
+            placeholder="Enter Password"
+          />
+          <button onClick={handleLogin}>Login</button>
+        </div>
       </div>
     </div>
   );
