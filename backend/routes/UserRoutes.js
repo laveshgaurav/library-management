@@ -8,6 +8,17 @@ const BookModel = require("../models/BookModel");
 
 const router = express.Router();
 
+// get user details
+router.get(
+  "/",
+  authMiddleware,
+  AsyncWrapper(async (req, res) => {
+    const userId = req?.user?._id;
+    const user = await UserModel.findById(userId).populate("borrowedBooks");
+    return res.send({ user });
+  })
+);
+
 // Registering the user
 router.post(
   "/register",
@@ -36,7 +47,7 @@ router.post(
   "/login",
   AsyncWrapper(async (req, res) => {
     const { email, password } = req.body;
-    const user = await UserModel.findOne({ email });
+    const user = await UserModel.findOne({ email }).populate("borrowedBooks");
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(400).send({ error: "Invalid credentials" });
     }
@@ -57,7 +68,7 @@ router.get(
 );
 
 // Burrowing book
-router.post(
+router.get(
   "/borrow-book/:bookId",
   authMiddleware,
   AsyncWrapper(async (req, res) => {
@@ -85,7 +96,7 @@ router.post(
 );
 
 // Returning Book
-router.post(
+router.get(
   "/return/:bookId",
   authMiddleware,
   AsyncWrapper(async (req, res) => {

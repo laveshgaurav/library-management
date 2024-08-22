@@ -38,7 +38,7 @@ function Login({ setIsLoggedIn, setToken, setUserDetails }: Props) {
           JSON.stringify(response?.data?.user),
         );
       }
-    } catch (error) {
+    } catch (error: any) {
       if (error?.response?.data?.error) {
         alert(error?.response?.data?.error);
       } else {

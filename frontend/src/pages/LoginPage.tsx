@@ -9,6 +9,7 @@ type Props = {
   setUserDetails: React.Dispatch<unknown>;
 };
 function LoginPage({ setIsLoggedIn, setToken, setUserDetails }: Props) {
+  // State
   const [activeSection, setActiveSection] = useState<string>("Login");
 
   return (
