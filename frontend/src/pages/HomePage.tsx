@@ -38,6 +38,7 @@ function HomePage({
   const [idClicked, setIdClicked] = useState<string>("");
 
   // Functions
+  // Fetch book list
   const fetchBooks = async () => {
     try {
       const data = await getBookList();
@@ -45,6 +46,7 @@ function HomePage({
     } catch (e: any) {}
   };
 
+  // Handle fetching user details
   const fetchUserDetails = async () => {
     try {
       const resp = await getUserDetails();
@@ -53,6 +55,7 @@ function HomePage({
     } catch (e) {}
   };
 
+  // Handle fetch burrowed books
   const fetchBurrowedBooks = async () => {
     try {
       const data = await getBurrowedBooks();
@@ -60,11 +63,11 @@ function HomePage({
     } catch (e: any) {}
   };
 
+  // Handle book burrow function
   const handleBurrowBook = async (id: string) => {
     try {
       setIdClicked(id);
-      const resp = await postBurrowBook(id);
-      console.log(resp);
+      await postBurrowBook(id);
       await fetchBooks();
       await fetchBurrowedBooks();
       await fetchUserDetails();
@@ -77,11 +80,11 @@ function HomePage({
     }
   };
 
+  // Handle book return function
   const handleReturn = async (id: string) => {
     try {
       setIdClicked(id);
-      const resp = await postReturnBook(id);
-      console.log(resp);
+      await postReturnBook(id);
       await fetchBooks();
       await fetchBurrowedBooks();
       await fetchUserDetails();
@@ -103,6 +106,7 @@ function HomePage({
 
   return (
     <div className="w-screen bg-[#F1F3F6]">
+      {/* Navigation Component */}
       <Navbar
         handleLogout={handleLogout}
         setToggleDrawer={setToggleDrawer}
@@ -111,8 +115,10 @@ function HomePage({
         userDetails={userDetails}
       />
 
+      {/* UI Banner */}
       <Banner username={userDetails?.name} />
 
+      {/* Book List */}
       <div className="p-8">
         <h1 className="text-36 mb-4 font-bold text-black">Book List</h1>
         <div className="flex w-full gap-x-8 overflow-x-auto">

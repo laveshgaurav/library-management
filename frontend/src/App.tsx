@@ -1,10 +1,6 @@
-/* eslint-disable no-empty */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useState } from "react";
 import LoginPage from "./pages/LoginPage";
-import { getBookList, getBurrowedBooks } from "./services/http.service";
-import { T_Book } from "./types/Type";
 import HomePage from "./pages/HomePage";
+import { useState } from "react";
 
 function App() {
   // States
@@ -39,7 +35,7 @@ function App() {
   };
 
   return (
-    <div className="">
+    <>
       {userLoggedIn ? (
         <HomePage
           handleLogout={handleLogout}
@@ -55,7 +51,7 @@ function App() {
           setUserDetails={setUserDetails}
         />
       )}
-    </div>
+    </>
   );
 }
 

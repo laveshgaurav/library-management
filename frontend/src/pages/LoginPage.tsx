@@ -26,6 +26,7 @@ function LoginPage({ setIsLoggedIn, setToken, setUserDetails }: Props) {
         </h2>
       </div>
       <div className="flex h-full w-3/5 flex-col items-center justify-center p-10 md:w-full md:p-8">
+        {/* Login Component */}
         {activeSection === "Login" && (
           <>
             <Login
@@ -44,7 +45,7 @@ function LoginPage({ setIsLoggedIn, setToken, setUserDetails }: Props) {
             </h2>
           </>
         )}
-
+        {/* Register Component */}
         {activeSection === "Register" && (
           <>
             <Register />
