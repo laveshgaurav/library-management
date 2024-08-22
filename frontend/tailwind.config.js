@@ -20,9 +20,9 @@ export default {
     },
     extend: {
       colors: {
-        accent_primary: "#FA394A",
-        text_primary: "#404145",
-        text_secondary: "#7C7C7C",
+        red: "#FB3453",
+        blue: "#00378F",
+        green: "#AAC10A",
       },
       spacing: {
         max_width: "1440px",

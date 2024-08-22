@@ -16,6 +16,11 @@ router.post(
     if (!email || !name || !password) {
       return res.status(400).send({ error: "Enter all fields" });
     }
+
+    const userExist = await UserModel.findOne({ email });
+    if (userExist) {
+      return res.status(400).send({ error: "User exists" });
+    }
     const hashedPassword = await bcrypt.hashSync(password, 8);
     const user = new UserModel({ name, email, password: hashedPassword });
     await user.save();
