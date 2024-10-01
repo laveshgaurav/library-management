@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+import { useState } from "react";
 import { register } from "../services/http.service";
 
 // Function
@@ -24,7 +23,8 @@ function Register() {
       if (response?.data?.message) {
         alert(response?.data?.message);
       }
-    } catch (error) {
+    } catch (e) {
+      console.error(e);
       alert("User already exists.");
       /* empty */
     } finally {

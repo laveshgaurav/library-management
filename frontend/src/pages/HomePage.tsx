@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { T_Book } from "../types/Type";
 import {
   getBookList,
@@ -46,7 +46,7 @@ function HomePage({
   };
 
   // Handle fetching user details
-  const fetchUserDetails = async () => {
+  const fetchUserDetails = useCallback(async () => {
     try {
       const resp = await getUserDetails();
       setUserDetails(resp?.data?.user);
@@ -54,7 +54,7 @@ function HomePage({
     } catch (e) {
       console.error(e);
     }
-  };
+  }, [setUserDetails]);
 
   // Handle fetch burrowed books
   const fetchBurrowedBooks = async () => {
