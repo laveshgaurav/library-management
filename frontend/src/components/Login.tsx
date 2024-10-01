@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { login } from "../services/http.service";
 
@@ -35,15 +34,11 @@ function Login({ setIsLoggedIn, setToken, setUserDetails }: Props) {
         localStorage.setItem("token", response?.data?.token);
         localStorage.setItem(
           "userDetails",
-          JSON.stringify(response?.data?.user),
+          JSON.stringify(response?.data?.user)
         );
       }
-    } catch (error: any) {
-      if (error?.response?.data?.error) {
-        alert(error?.response?.data?.error);
-      } else {
-        alert("Internal Server Error");
-      }
+    } catch (e: any) {
+      console.error(e);
     } finally {
       setLoading(false);
       setUserInput({
@@ -63,7 +58,7 @@ function Login({ setIsLoggedIn, setToken, setUserDetails }: Props) {
         <label>
           <p>Email</p>
           <input
-            className="border-blue w-full rounded-md border-[2px] p-2"
+            className="w-full rounded-md border-[2px] border-blue p-2"
             value={userInput.email}
             onChange={(e) =>
               setUserInput((p) => ({
@@ -77,7 +72,7 @@ function Login({ setIsLoggedIn, setToken, setUserDetails }: Props) {
         <label>
           <p>Password</p>
           <input
-            className="border-blue w-full rounded-md border-[2px] p-2"
+            className="w-full rounded-md border-[2px] border-blue p-2"
             value={userInput.password}
             onChange={(e) =>
               setUserInput((p) => ({
@@ -89,7 +84,7 @@ function Login({ setIsLoggedIn, setToken, setUserDetails }: Props) {
           />
         </label>
         <button
-          className="bg-red w-fit rounded-md px-8 py-2 text-white"
+          className="w-fit rounded-md bg-red px-8 py-2 text-white"
           onClick={handleLogin}
         >
           {loading ? "Logging In..." : "Log In"}

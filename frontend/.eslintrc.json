@@ -4,19 +4,19 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["prettier-plugin-tailwindcss", "react"],
+  "plugins": ["react"],
   "rules": {
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "prettier/prettier": ["error"]
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   },
   "settings": {
     "react": {
       "version": "detect"
     }
-  },
-  "semi": true,
-  "singleQuote": false,
-  "trailingComma": "es5",
-  "printWidth": 80,
-  "tabWidth": 2
+  }
 }

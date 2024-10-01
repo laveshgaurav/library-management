@@ -14,7 +14,7 @@ const LineChart = () => {
     <div className="flex h-full flex-col items-center">
       {/* Y-Axis Labels */}
       <div className="mb-2 flex h-full w-full justify-between">
-        <div className="text-14 flex flex-col justify-between text-gray-500">
+        <div className="flex flex-col justify-between text-14 text-gray-500">
           <span>100</span>
           <span>80</span>
           <span>60</span>
@@ -29,7 +29,7 @@ const LineChart = () => {
             <div key={index} className="flex flex-col items-center">
               {/* Bar with shadow */}
               <div
-                className={`bg-red w-12 rounded-t-lg shadow-md md:w-4`}
+                className={`w-12 rounded-t-lg bg-red shadow-md md:w-4`}
                 style={{
                   height: `${item.value}px`,
                 }}

@@ -5,19 +5,13 @@ import { useState } from "react";
 function App() {
   // States
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(
-    localStorage.getItem("isLoggedIn")
-      ? JSON.parse(localStorage.getItem("isLoggedIn") || "false")
-      : false,
+    localStorage.getItem("isLoggedIn") ? JSON.parse(localStorage.getItem("isLoggedIn") || "false") : false
   );
   const [token, setToken] = useState<string>(
-    localStorage.getItem("token")
-      ? (localStorage.getItem("token") as string)
-      : "",
+    localStorage.getItem("token") ? (localStorage.getItem("token") as string) : ""
   );
   const [userDetails, setUserDetails] = useState<any>(
-    localStorage.getItem("userDetails")
-      ? JSON.parse(localStorage.getItem("userDetails") || "{}")
-      : {},
+    localStorage.getItem("userDetails") ? JSON.parse(localStorage.getItem("userDetails") || "{}") : {}
   );
   const [toggleDrawer, setToggleDrawer] = useState<boolean>(false);
 
@@ -45,11 +39,7 @@ function App() {
           setUserDetails={setUserDetails}
         />
       ) : (
-        <LoginPage
-          setIsLoggedIn={setIsLoggedIn}
-          setToken={setToken}
-          setUserDetails={setUserDetails}
-        />
+        <LoginPage setIsLoggedIn={setIsLoggedIn} setToken={setToken} setUserDetails={setUserDetails} />
       )}
     </>
   );

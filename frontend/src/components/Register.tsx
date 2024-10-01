@@ -41,14 +41,13 @@ function Register() {
     <div className="flex flex-col gap-y-3">
       <h1 className="text-48 font-bold">Register</h1>
       <h2>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod{" "}
-        <br /> tempor incididunt ut labore et .
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br /> tempor incididunt ut labore et .
       </h2>
       <div className="flex flex-col gap-y-3">
         <label>
           <p>Name</p>
           <input
-            className="border-blue w-full rounded-md border-[2px] p-2"
+            className="m-1 w-full rounded-md border-[2px] border-blue bg-red p-2"
             value={userInput.name}
             onChange={(e) =>
               setUserInput((p) => ({
@@ -62,7 +61,7 @@ function Register() {
         <label>
           <p>Email</p>
           <input
-            className="border-blue w-full rounded-md border-[2px] p-2"
+            className="w-full rounded-md border-[2px] border-blue p-2"
             value={userInput.email}
             onChange={(e) =>
               setUserInput((p) => ({
@@ -76,7 +75,7 @@ function Register() {
         <label>
           <p>Password</p>
           <input
-            className="border-blue w-full rounded-md border-[2px] p-2"
+            className="w-full rounded-md border-[2px] border-blue p-2"
             value={userInput.password}
             onChange={(e) =>
               setUserInput((p) => ({
@@ -87,10 +86,7 @@ function Register() {
             placeholder="Enter Password"
           />
         </label>
-        <button
-          className="bg-red w-fit rounded-md px-8 py-2 text-white"
-          onClick={handleRegister}
-        >
+        <button className="w-fit rounded-md bg-red px-8 py-2 text-white" onClick={handleRegister}>
           {loading ? "Registering..." : "Register"}
         </button>
       </div>

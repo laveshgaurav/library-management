@@ -1,5 +1,3 @@
-/* eslint-disable no-empty */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { T_Book } from "../types/Type";
 import {
@@ -9,7 +7,6 @@ import {
   postBurrowBook,
   postReturnBook,
 } from "../services/http.service";
-import LineChart from "../components/LineChart";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import BookItem from "../components/BookItem";
@@ -52,7 +49,9 @@ function HomePage({
       const resp = await getUserDetails();
       setUserDetails(resp?.data?.user);
       localStorage.setItem("userDetails", JSON.stringify(resp?.data?.user));
-    } catch (e) {}
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   // Handle fetch burrowed books
@@ -60,7 +59,9 @@ function HomePage({
     try {
       const data = await getBurrowedBooks();
       setBurrowedBook(data.data);
-    } catch (e: any) {}
+    } catch (e: any) {
+      console.error(e);
+    }
   };
 
   // Handle book burrow function
@@ -120,7 +121,7 @@ function HomePage({
 
       {/* Book List */}
       <div className="p-8">
-        <h1 className="text-36 mb-4 font-bold text-black">Book List</h1>
+        <h1 className="mb-4 text-36 font-bold text-black">Book List</h1>
         <div className="flex w-full gap-x-8 overflow-x-auto">
           {bookList?.map((book) => (
             <BookItem
