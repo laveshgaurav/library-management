@@ -41,7 +41,8 @@ function Register() {
     <div className="flex flex-col gap-y-3">
       <h1 className="text-48 font-bold">Register</h1>
       <h2>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br /> tempor incididunt ut labore et .
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod{" "}
+        <br /> tempor incididunt ut labore et .
       </h2>
       <div className="flex flex-col gap-y-3">
         <label>
@@ -86,7 +87,10 @@ function Register() {
             placeholder="Enter Password"
           />
         </label>
-        <button className="w-fit rounded-md bg-red px-8 py-2 text-white" onClick={handleRegister}>
+        <button
+          className="w-fit rounded-md bg-red px-8 py-2 text-white"
+          onClick={handleRegister}
+        >
           {loading ? "Registering..." : "Register"}
         </button>
       </div>

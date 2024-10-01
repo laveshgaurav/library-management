@@ -12,10 +12,12 @@ function Banner({ username }: Props) {
         <div className="flex aspect-[4/1] w-1/2 items-center justify-between rounded-md bg-red p-8 md:w-full md:p-4">
           <div className="flex h-full w-full flex-col justify-between">
             <div className="">
-              <h2 className="mb-2 text-24 font-normal text-white">Welcome Back {username}</h2>
+              <h2 className="mb-2 text-24 font-normal text-white">
+                Welcome Back {username}
+              </h2>
               <p className="text-14 text-white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br /> tempor incididunt ut
-                labore et .
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod <br /> tempor incididunt ut labore et .
               </p>
             </div>
             <h3 className="font-light text-white md:mt-8">

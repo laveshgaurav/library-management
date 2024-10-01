@@ -20,16 +20,26 @@ function LoginPage({ setIsLoggedIn, setToken, setUserDetails }: Props) {
           <br />
           Library
         </h1>
-        <h2 className="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</h2>
+        <h2 className="text-white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod.
+        </h2>
       </div>
       <div className="flex h-full w-3/5 flex-col items-center justify-center p-10 md:w-full md:p-8">
         {/* Login Component */}
         {activeSection === "Login" && (
           <>
-            <Login setIsLoggedIn={setIsLoggedIn} setToken={setToken} setUserDetails={setUserDetails} />
+            <Login
+              setIsLoggedIn={setIsLoggedIn}
+              setToken={setToken}
+              setUserDetails={setUserDetails}
+            />
             <h2 className="my-4 font-normal">
               Don't have an account ?{" "}
-              <span className="cursor-pointer font-bold text-red" onClick={() => setActiveSection("Register")}>
+              <span
+                className="cursor-pointer font-bold text-red"
+                onClick={() => setActiveSection("Register")}
+              >
                 Register
               </span>
             </h2>
@@ -41,7 +51,10 @@ function LoginPage({ setIsLoggedIn, setToken, setUserDetails }: Props) {
             <Register />
             <h2 className="my-4 font-normal">
               Already have an account ?{" "}
-              <span className="cursor-pointer font-bold text-red" onClick={() => setActiveSection("Login")}>
+              <span
+                className="cursor-pointer font-bold text-red"
+                onClick={() => setActiveSection("Login")}
+              >
                 Sign In
               </span>
             </h2>

@@ -31,7 +31,7 @@ function HomePage({
   console.log(userDetails);
   // States
   const [bookList, setBookList] = useState<T_Book[]>([]);
-  const [burrowedBook, setBurrowedBook] = useState<T_Book[]>();
+  const [, setBurrowedBook] = useState<T_Book[]>();
   const [idClicked, setIdClicked] = useState<string>("");
 
   // Functions
@@ -40,7 +40,9 @@ function HomePage({
     try {
       const data = await getBookList();
       setBookList(data.data);
-    } catch (e: any) {}
+    } catch (e: any) {
+      console.error(e);
+    }
   };
 
   // Handle fetching user details
@@ -103,7 +105,7 @@ function HomePage({
     fetchBooks();
     fetchBurrowedBooks();
     fetchUserDetails();
-  }, []);
+  }, [fetchUserDetails]);
 
   return (
     <div className="w-screen bg-[#F1F3F6]">

@@ -7,7 +7,12 @@ type Props = {
   toggleDrawer: boolean;
   setToggleDrawer: React.Dispatch<React.SetStateAction<boolean>>;
 };
-function Navbar({ handleLogout, setToggleDrawer, toggleDrawer, userDetails }: Props) {
+function Navbar({
+  handleLogout,
+  setToggleDrawer,
+  toggleDrawer,
+  userDetails,
+}: Props) {
   return (
     <div className="flex w-full items-center justify-between border bg-white px-8 py-3 shadow-md md:flex-col md:gap-y-2">
       <div className="flex items-center gap-x-6">
@@ -16,7 +21,10 @@ function Navbar({ handleLogout, setToggleDrawer, toggleDrawer, userDetails }: Pr
           <span>
             <i className="fa-solid fa-magnifying-glass"></i>
           </span>
-          <input placeholder="Search Your Book" className="border-none bg-inherit outline-none" />
+          <input
+            placeholder="Search Your Book"
+            className="border-none bg-inherit outline-none"
+          />
         </label>
       </div>
       <div className="flex items-center gap-x-12 md:w-full md:justify-between">
@@ -31,10 +39,17 @@ function Navbar({ handleLogout, setToggleDrawer, toggleDrawer, userDetails }: Pr
 
         <div className="flex items-center gap-x-2">
           <div>
-            <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="User" className="h-10 w-10 rounded-full" />
+            <img
+              src="https://randomuser.me/api/portraits/men/43.jpg"
+              alt="User"
+              className="h-10 w-10 rounded-full"
+            />
           </div>
           <div className="relative">
-            <h1 className="cursor-pointer text-14 font-bold" onClick={() => setToggleDrawer((p) => !p)}>
+            <h1
+              className="cursor-pointer text-14 font-bold"
+              onClick={() => setToggleDrawer((p) => !p)}
+            >
               {userDetails?.name}{" "}
               <span>
                 {toggleDrawer ? (
@@ -49,7 +64,10 @@ function Navbar({ handleLogout, setToggleDrawer, toggleDrawer, userDetails }: Pr
             {toggleDrawer && (
               <div className="absolute right-0 top-[150%] rounded-md bg-white p-4 shadow-md">
                 <h2>{userDetails?.email}</h2>
-                <button className="w-full rounded-md bg-red p-1 text-14 font-bold text-white" onClick={handleLogout}>
+                <button
+                  className="w-full rounded-md bg-red p-1 text-14 font-bold text-white"
+                  onClick={handleLogout}
+                >
                   Log Out
                 </button>
               </div>
